@@ -15,7 +15,7 @@ const Hero = () => {
       >
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
       </div>
-      
+      <br></br>    <br></br>    <br></br>    <br></br>    <br></br>    <br></br>    <br></br>
       <div className="relative z-10 flex h-full flex-col items-center justify-center px-4 text-center">
         <h1 className="mb-6 font-serif text-5xl font-bold text-white drop-shadow-2xl md:text-7xl lg:text-8xl animate-in fade-in slide-in-from-bottom-4 duration-1000">
           Sora Sierra
@@ -23,22 +23,6 @@ const Hero = () => {
         <p className="mb-8 max-w-2xl text-lg text-white/90 drop-shadow-lg md:text-xl animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-200">
           Experience breathtaking hilltop views, authentic Thai cuisine, and tropical paradise
         </p>
-        <div className="flex flex-col gap-4 sm:flex-row animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-300">
-          <Button 
-            size="lg" 
-            className="bg-primary hover:bg-primary/90 text-white shadow-lg hover:shadow-xl transition-smooth"
-            onClick={scrollToAbout}
-          >
-            Discover More
-          </Button>
-          <Button 
-            size="lg" 
-            variant="outline" 
-            className="border-2 border-white bg-white/10 backdrop-blur-sm text-white hover:bg-white hover:text-foreground transition-smooth"
-          >
-            View Menu
-          </Button>
-        </div>
       </div>
       
       <button 
