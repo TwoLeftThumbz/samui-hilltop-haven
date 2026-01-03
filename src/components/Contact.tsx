@@ -47,7 +47,7 @@ const Contact = () => {
                 <div>
                   <h3 className="font-semibold text-foreground mb-2">WhatsApp</h3>
                   <Button variant="outline" size="sm" asChild>
-                    <a href="https://wa.me/66806388101" target="_blank" rel="noopener noreferrer">
+                    <a href="https://wa.me/66886388101" target="_blank" rel="noopener noreferrer">
                       Message Us
                     </a>
                   </Button>
