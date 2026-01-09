@@ -85,7 +85,7 @@ const Navigation = () => {
                     : "bg-white/20 backdrop-blur-sm hover:bg-white hover:text-foreground border-2 border-white text-white"
                 }`}
               >
-                <a href="mailto:hello@sorasierra.com?subject=Reservation Request&body=Hello Sora Sierra,%0D%0A%0D%0AI would like to make a reservation.%0D%0A%0D%0ADetails:%0D%0A- Name: %0D%0A- Number of guests: %0D%0A- Date: %0D%0A- Time: %0D%0A- Special requests: %0D%0A%0D%0AThank you!">
+                <a href="mailto:hello@sorasierra.com?subject=Reservation Request&body=Hello Sora Sierra,%0D%0A%0D%0AI would like to make a reservation.%0D%0A%0D%0ADetails:%0D%0A- Name: %0D%0A- Contact Number or Email: %0D%0A- Number of guests: %0D%0A- Date: %0D%0A- Time: %0D%0A- Special requests: %0D%0A%0D%0AThank you!">
                   Reserve Now
                 </a>
               </Button>

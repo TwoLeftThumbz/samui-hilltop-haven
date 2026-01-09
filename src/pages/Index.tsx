@@ -5,6 +5,7 @@ import MenuPreview from "@/components/MenuPreview";
 import CommunityLove from "@/components/CommunityLove";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import InstagramFeed from "@/components/InstagramFeed";
 
 const Index = () => {
   return (
@@ -14,6 +15,7 @@ const Index = () => {
         <Hero />
         <About />
         <MenuPreview />
+          <InstagramFeed />
         <CommunityLove />
         <Contact />
       </main>
