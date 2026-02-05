@@ -5,3 +5,4 @@
 21/01 01:28 Added Vercel SPA rewrite to serve index.html for client-side routes like /about.
 21/01 11:29 Allowed the Community Love CTA button to wrap on small screens to avoid horizontal scrolling.
 21/01 11:34 Updated the sitemap to include the About route and refreshed lastmod dates; added sitemap reference to robots.txt.
+05/02 19:38 Restricted Vercel rewrites to known routes so legacy WordPress URLs now return 404 instead of 200.
