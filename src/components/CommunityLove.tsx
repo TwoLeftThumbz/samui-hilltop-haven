@@ -18,7 +18,7 @@ const CommunityLove = () => {
             Show us some love on Samui to the World and help others discover Sora Sierra!
           </p>
           
-          <Button size="lg" asChild className="group">
+          <Button size="lg" asChild className="group h-auto whitespace-normal text-center leading-snug py-3">
             <a 
               href="https://samuitotheworld.com/business/sora-sierra" 
               target="_blank" 

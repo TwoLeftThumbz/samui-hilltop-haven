@@ -16,12 +16,12 @@ const Footer = () => {
           <div className="space-y-4">
             <h4 className="font-semibold text-lg">Quick Links</h4>
             <div className="flex flex-col gap-2">
-              <button 
-                onClick={() => document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })}
+              <Link
+                to="/about"
                 className="text-left text-background/80 hover:text-background transition-smooth"
               >
                 About Us
-              </button>
+              </Link>
               <button 
                 onClick={() => document.getElementById("menu")?.scrollIntoView({ behavior: "smooth" })}
                 className="text-left text-background/80 hover:text-background transition-smooth"
