@@ -58,17 +58,20 @@ const Navigation = () => {
           <div className="flex h-20 items-center justify-between">
             <button
               onClick={() => navigate("/")}
-              className="font-serif text-2xl font-bold transition-smooth hover:text-primary"
+              className="flex items-center transition-smooth hover:opacity-90"
             >
-              <span
-                className={
+              <img
+                src={
                   showSolidStyle
-                    ? "text-foreground"
-                    : "text-white drop-shadow-lg"
+                    ? "/sora-logo-footer.png"
+                    : "/sora-logo-transparent.png"
                 }
-              >
-                Sora Sierra
-              </span>
+                alt="Sora Sierra logo"
+                className={`h-10 w-auto md:h-11 ${
+                  showSolidStyle ? "" : "drop-shadow-lg"
+                }`}
+              />
+              <span className="sr-only">Sora Sierra</span>
             </button>
 
             <div className="hidden md:flex items-center gap-8">

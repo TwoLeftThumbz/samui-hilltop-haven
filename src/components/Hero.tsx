@@ -9,10 +9,23 @@ const Hero = () => {
 
   return (
     <section className="relative h-screen w-full overflow-hidden">
-      <div 
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${heroView})` }}
-      >
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 md:hidden">
+          <video
+            className="h-full w-full object-cover"
+            autoPlay
+            muted
+            loop
+            playsInline
+            poster={heroView}
+          >
+            <source src="/mobile-hero-bg.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <div
+          className="absolute inset-0 hidden bg-cover bg-center md:block"
+          style={{ backgroundImage: `url(${heroView})` }}
+        />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
       </div>
       <br></br>    <br></br>    <br></br>    <br></br>    <br></br>    <br></br>    <br></br>

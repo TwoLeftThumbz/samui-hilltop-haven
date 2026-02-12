@@ -1,5 +1,12 @@
+import type { SVGProps } from "react";
 import { Facebook, Instagram, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
+
+const TikTokIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...props}>
+    <path d="M19.589 6.686a4.793 4.793 0 0 1-3.77-3.77A4.794 4.794 0 0 1 15.5 2h-3.09v12.65a2.58 2.58 0 0 1-2.58 2.58 2.58 2.58 0 0 1-2.58-2.58 2.58 2.58 0 0 1 2.58-2.58c.29 0 .567.05.83.14V8.06a5.671 5.671 0 0 0-.83-.06 5.59 5.59 0 1 0 5.59 5.59V8.89a7.93 7.93 0 0 0 4.17 1.21V6.686z" />
+  </svg>
+);
 
 const Footer = () => {
   return (
@@ -7,7 +14,14 @@ const Footer = () => {
       <div className="container mx-auto max-w-7xl">
         <div className="grid gap-8 md:grid-cols-3">
           <div className="space-y-4">
-            <h3 className="font-serif text-2xl font-bold">Sora Sierra</h3>
+            <div className="flex items-center">
+              <img
+                src="/sora-logo-transparent.png"
+                alt="Sora Sierra logo"
+                className="h-10 w-auto"
+              />
+              <span className="sr-only">Sora Sierra</span>
+            </div>
             <p className="text-background/80">
               Where breathtaking views meet authentic Thai flavors
             </p>
@@ -47,7 +61,9 @@ const Footer = () => {
             <h4 className="font-semibold text-lg">Follow Us</h4>
             <div className="flex gap-4">
               <a 
-                href="#" 
+                href="https://www.facebook.com/skyabovesamui/" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="rounded-full bg-background/10 p-3 transition-smooth hover:bg-background/20"
                 aria-label="Facebook"
               >
@@ -68,6 +84,15 @@ const Footer = () => {
                 aria-label="Email"
               >
                 <Mail className="h-5 w-5" />
+              </a>
+              <a 
+                href="https://www.tiktok.com/@sorasierrasamui" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full bg-background/10 p-3 transition-smooth hover:bg-background/20"
+                aria-label="TikTok"
+              >
+                <TikTokIcon className="h-5 w-5" />
               </a>
             </div>
           </div>
