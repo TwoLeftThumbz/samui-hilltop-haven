@@ -1,14 +1,14 @@
 import { Button } from "@/components/ui/button";
-import { ChevronDown } from "lucide-react";
 import heroView from "@/assets/hero-view.jpg";
 
 const Hero = () => {
-  const scrollToAbout = () => {
-    document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
-  };
+  const whatsappMessage = encodeURIComponent(
+    "Hello Sora Sierra,\n\nI would like to reserve a table with a view.\n\nDetails:\n- Name:\n- Contact Number or Email:\n- Number of guests:\n- Date:\n- Time:\n- Special requests:\n\nThank you!"
+  );
+  const whatsappUrl = `https://wa.me/66886388101?text=${whatsappMessage}`;
 
   return (
-    <section className="relative h-screen w-full overflow-hidden">
+    <section className="relative min-h-[100svh] w-full overflow-hidden">
       <div className="absolute inset-0">
         <div className="absolute inset-0 md:hidden">
           <video
@@ -28,23 +28,25 @@ const Hero = () => {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
       </div>
-      <br></br>    <br></br>    <br></br>    <br></br>    <br></br>    <br></br>    <br></br>
-      <div className="relative z-10 flex h-full flex-col items-center justify-center px-4 text-center">
-        <h1 className="mb-6 font-serif text-5xl font-bold text-white drop-shadow-2xl md:text-7xl lg:text-8xl animate-in fade-in slide-in-from-bottom-4 duration-1000">
+      <div className="relative z-10 flex min-h-[100svh] flex-col items-center justify-center px-4 pb-16 pt-24 md:pt-96 lg:pt-[28rem] text-center">
+        <h1 className="mb-6 font-serif text-4xl font-bold text-white drop-shadow-2xl sm:text-5xl md:text-7xl lg:text-8xl animate-in fade-in slide-in-from-bottom-4 duration-1000">
           Sora Sierra
         </h1>
         <p className="mb-8 max-w-2xl text-lg text-white/90 drop-shadow-lg md:text-xl animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-200">
           Experience breathtaking hilltop views, authentic Thai cuisine, and tropical paradise
         </p>
+        <div className="flex flex-col items-center gap-4 sm:flex-row animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-300">
+          <Button
+            size="lg"
+            asChild
+            className="bg-white/20 backdrop-blur-sm hover:bg-white hover:text-foreground border-2 border-white text-white"
+          >
+            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+              Reserve a Table with a View
+            </a>
+          </Button>
+        </div>
       </div>
-      
-      <button 
-        onClick={scrollToAbout}
-        className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2 animate-bounce"
-        aria-label="Scroll to content"
-      >
-        <ChevronDown className="h-8 w-8 text-white drop-shadow-lg" />
-      </button>
     </section>
   );
 };

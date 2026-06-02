@@ -14,3 +14,21 @@
 12/02 13:04 Added a dark logo variant and swapped the header logo based on scroll state.
 12/02 13:11 Added the mobile-only hero background video with image fallback for larger screens.
 12/02 13:15 Reverted the rounded-corner favicon/app icon assets back to the originals.
+12/02 13:24 Updated the footer Instagram and TikTok links to Sky Above Samui profiles.
+12/02 13:24 Increased the footer logo size slightly.
+12/02 13:25 Increased the footer logo size again.
+12/02 13:25 Increased the footer logo size to h-16.
+12/02 13:31 Added a mobile Instagram deep-link handler to improve navigation to the profile in the app.
+12/02 13:33 Added the Instagram deep-link behavior to the homepage Instagram button and updated the default profile URL.
+12/02 13:37 Switched Instagram mobile deep links to the universal _u profile URL for better in-app navigation.
+12/02 13:39 Updated Instagram deep links to use Android intent URLs with iOS scheme fallback.
+12/02 13:51 Added a hero CTA button that opens WhatsApp with a prefilled reservation message.
+12/02 14:04 Removed the hero scroll-down icon button.
+12/02 14:08 Matched the hero WhatsApp CTA styling to the header Reserve Now button.
+12/02 14:13 Adjusted hero layout for mobile landscape (removed spacer breaks, switched to svh, and tuned text sizing).
+12/02 14:26 Added the Atteron font and switched all headers/serif styles to use it.
+12/02 14:27 Pushed the hero text block downward on large screens with increased top padding.
+12/02 14:28 Doubled the hero top padding on large screens to move the content lower.
+12/02 14:28 Doubled the hero top padding again for large screens.
+13/02 13:53 Added GTM script in head and noscript iframe after body open in index.html.
+05/05 20:46 Added a new /events page from new-page.txt content, wired it into routing, and linked Events in the site navigation and footer.

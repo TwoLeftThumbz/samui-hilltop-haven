@@ -1,7 +1,7 @@
-import { useEffect } from "react";
+import { type MouseEvent, useEffect } from "react";
 import { Instagram } from "lucide-react";
 
-const DEFAULT_PROFILE_URL = "https://www.instagram.com/sorasierrasamui/";
+const DEFAULT_PROFILE_URL = "https://www.instagram.com/skyabovesamui/";
 const instagramProfileUrl = import.meta.env.VITE_INSTAGRAM_PROFILE_URL || DEFAULT_PROFILE_URL;
 const embedHandle = instagramProfileUrl
   .replace(/https?:\/\/(www\.)?instagram\.com\//, "@")
@@ -12,6 +12,28 @@ const SNAPWIDGET_SNIPPET = `<!-- SnapWidget -->
 <iframe src="https://snapwidget.com/embed/1113171" class="snapwidget-widget" allowtransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:100%;" title="Posts from Instagram"></iframe>`;
 
 const InstagramFeed = () => {
+  const handleInstagramClick = (event: MouseEvent<HTMLAnchorElement>) => {
+    const isAndroid = /Android/i.test(navigator.userAgent);
+    const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+    if (!isAndroid && !isIOS) {
+      return;
+    }
+
+    event.preventDefault();
+    const username = embedHandle.replace(/^@/, "");
+    const webUrl = `https://www.instagram.com/${username}/`;
+    const appUrl = isAndroid
+      ? `intent://instagram.com/_u/${username}/#Intent;package=com.instagram.android;scheme=https;end`
+      : `instagram://user?username=${username}`;
+
+    window.location.href = appUrl;
+    window.setTimeout(() => {
+      if (document.visibilityState === "visible") {
+        window.location.href = webUrl;
+      }
+    }, 700);
+  };
+
   useEffect(() => {
     const scriptSrc = "https://snapwidget.com/js/snapwidget.js";
     const existingScript = document.querySelector(`script[src="${scriptSrc}"]`);
@@ -49,6 +71,7 @@ const InstagramFeed = () => {
             target="_blank"
             rel="noreferrer noopener"
             className="inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3 font-medium text-background transition-smooth hover:bg-foreground/90"
+            onClick={handleInstagramClick}
           >
             <Instagram className="h-5 w-5" />
             <span>{embedHandle}</span>

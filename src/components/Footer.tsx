@@ -1,4 +1,4 @@
-import type { SVGProps } from "react";
+import type { MouseEvent, SVGProps } from "react";
 import { Facebook, Instagram, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -9,6 +9,28 @@ const TikTokIcon = (props: SVGProps<SVGSVGElement>) => (
 );
 
 const Footer = () => {
+  const handleInstagramClick = (event: MouseEvent<HTMLAnchorElement>) => {
+    const isAndroid = /Android/i.test(navigator.userAgent);
+    const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+    if (!isAndroid && !isIOS) {
+      return;
+    }
+
+    event.preventDefault();
+    const username = "skyabovesamui";
+    const webUrl = `https://www.instagram.com/${username}/`;
+    const appUrl = isAndroid
+      ? `intent://instagram.com/_u/${username}/#Intent;package=com.instagram.android;scheme=https;end`
+      : `instagram://user?username=${username}`;
+
+    window.location.href = appUrl;
+    window.setTimeout(() => {
+      if (document.visibilityState === "visible") {
+        window.location.href = webUrl;
+      }
+    }, 700);
+  };
+
   return (
     <footer className="bg-foreground text-background py-12 px-4">
       <div className="container mx-auto max-w-7xl">
@@ -18,7 +40,7 @@ const Footer = () => {
               <img
                 src="/sora-logo-transparent.png"
                 alt="Sora Sierra logo"
-                className="h-10 w-auto"
+                className="h-16 w-auto"
               />
               <span className="sr-only">Sora Sierra</span>
             </div>
@@ -48,6 +70,12 @@ const Footer = () => {
               >
                 Gallery
               </Link>
+              <Link
+                to="/events"
+                className="text-left text-background/80 hover:text-background transition-smooth"
+              >
+                Events
+              </Link>
               <button 
                 onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
                 className="text-left text-background/80 hover:text-background transition-smooth"
@@ -70,11 +98,12 @@ const Footer = () => {
                 <Facebook className="h-5 w-5" />
               </a>
               <a 
-                href="https://www.instagram.com/sorasierrasamui/" 
+                href="https://www.instagram.com/skyabovesamui/" 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="rounded-full bg-background/10 p-3 transition-smooth hover:bg-background/20"
                 aria-label="Instagram"
+                onClick={handleInstagramClick}
               >
                 <Instagram className="h-5 w-5" />
               </a>
@@ -86,7 +115,7 @@ const Footer = () => {
                 <Mail className="h-5 w-5" />
               </a>
               <a 
-                href="https://www.tiktok.com/@sorasierrasamui" 
+                href="https://www.tiktok.com/@skyabovesamui" 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="rounded-full bg-background/10 p-3 transition-smooth hover:bg-background/20"
