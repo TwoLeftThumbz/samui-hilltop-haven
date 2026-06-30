@@ -1,6 +1,20 @@
 import { Button } from "@/components/ui/button";
 import { MapPin, Clock, MessageCircle, Mail } from "lucide-react";
+import { useState } from "react";
+import TurnstileContactGate from "./TurnstileContactGate";
+
+type ContactAction = {
+  label: string;
+  url: string;
+};
+
+const whatsappUrl = "https://wa.me/66886388101";
+const emailUrl =
+  "mailto:hello@sorasierra.com?subject=Reservation Request&body=Hello Sora Sierra,%0D%0A%0D%0AI would like to make a reservation.%0D%0A%0D%0ADetails:%0D%0A- Name: %0D%0A- Contact Number or Email: %0D%0A- Number of guests: %0D%0A- Date: %0D%0A- Time: %0D%0A- Special requests: %0D%0A%0D%0AThank you!";
+
 const Contact = () => {
+  const [pendingAction, setPendingAction] = useState<ContactAction | null>(null);
+
   return (
     <section id="contact" className="py-20 px-4 bg-muted/30">
       <div className="container mx-auto max-w-7xl">
@@ -55,14 +69,15 @@ const Contact = () => {
                   <h3 className="font-semibold text-foreground mb-2">
                     WhatsApp
                   </h3>
-                  <Button variant="outline" size="sm" asChild>
-                    <a
-                      href="https://wa.me/66886388101"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Message Us
-                    </a>
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="sm"
+                    onClick={() =>
+                      setPendingAction({ label: "WhatsApp", url: whatsappUrl })
+                    }
+                  >
+                    Message Us
                   </Button>
                 </div>
               </div>
@@ -73,10 +88,15 @@ const Contact = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold text-foreground mb-2">Email</h3>
-                  <Button variant="outline" size="sm" asChild>
-                    <a href="mailto:hello@sorasierra.com?subject=Reservation Request&body=Hello Sora Sierra,%0D%0A%0D%0AI would like to make a reservation.%0D%0A%0D%0ADetails:%0D%0A- Name: %0D%0A- Contact Number or Email: %0D%0A- Number of guests: %0D%0A- Date: %0D%0A- Time: %0D%0A- Special requests: %0D%0A%0D%0AThank you!">
-                      Book via Email
-                    </a>
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="sm"
+                    onClick={() =>
+                      setPendingAction({ label: "Email", url: emailUrl })
+                    }
+                  >
+                    Book via Email
                   </Button>
                 </div>
               </div>
@@ -99,6 +119,10 @@ const Contact = () => {
           </div>
         </div>
       </div>
+      <TurnstileContactGate
+        action={pendingAction}
+        onOpenChange={(open) => !open && setPendingAction(null)}
+      />
     </section>
   );
 };

@@ -2,10 +2,16 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
+import TurnstileContactGate from "./TurnstileContactGate";
+
+const reservationEmailUrl =
+  "mailto:hello@sorasierra.com?subject=Reservation Request&body=Hello Sora Sierra,%0D%0A%0D%0AI would like to make a reservation.%0D%0A%0D%0ADetails:%0D%0A- Name: %0D%0A- Contact Number or Email: %0D%0A- Number of guests: %0D%0A- Date: %0D%0A- Time: %0D%0A- Special requests: %0D%0A%0D%0AThank you!";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [showReservationVerification, setShowReservationVerification] =
+    useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -45,6 +51,11 @@ const Navigation = () => {
     { label: "Events", id: "events", routePath: "/events" },
     { label: "Contact", id: "contact" },
   ];
+
+  const handleReservationClick = () => {
+    setIsMobileMenuOpen(false);
+    setShowReservationVerification(true);
+  };
 
   return (
     <>
@@ -90,17 +101,16 @@ const Navigation = () => {
                 </button>
               ))}
               <Button
+                type="button"
                 size="sm"
-                asChild
                 className={`transition-smooth ${
                   showSolidStyle
                     ? "bg-primary hover:bg-primary/90"
                     : "bg-white/20 backdrop-blur-sm hover:bg-white hover:text-foreground border-2 border-white text-white"
                 }`}
+                onClick={handleReservationClick}
               >
-                <a href="mailto:hello@sorasierra.com?subject=Reservation Request&body=Hello Sora Sierra,%0D%0A%0D%0AI would like to make a reservation.%0D%0A%0D%0ADetails:%0D%0A- Name: %0D%0A- Contact Number or Email: %0D%0A- Number of guests: %0D%0A- Date: %0D%0A- Time: %0D%0A- Special requests: %0D%0A%0D%0AThank you!">
-                  Reserve Now
-                </a>
+                Reserve Now
               </Button>
             </div>
 
@@ -130,17 +140,25 @@ const Navigation = () => {
               </button>
             ))}
             <Button
+              type="button"
               size="lg"
-              asChild
               className="bg-primary hover:bg-primary/90"
+              onClick={handleReservationClick}
             >
-              <a href="mailto:hello@sorasierra.com?subject=Reservation Request&body=Hello Sora Sierra,%0D%0A%0D%0AI would like to make a reservation.%0D%0A%0D%0ADetails:%0D%0A- Name: %0D%0A- Contact Number or Email: %0D%0A- Number of guests: %0D%0A- Date: %0D%0A- Time: %0D%0A- Special requests: %0D%0A%0D%0AThank you!">
-                Reserve Now
-              </a>
+              Reserve Now
             </Button>
           </div>
         </div>
       )}
+
+      <TurnstileContactGate
+        action={
+          showReservationVerification
+            ? { label: "Reserve Now", url: reservationEmailUrl }
+            : null
+        }
+        onOpenChange={(open) => !open && setShowReservationVerification(false)}
+      />
     </>
   );
 };

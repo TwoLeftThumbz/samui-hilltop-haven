@@ -1,7 +1,12 @@
 import { Button } from "@/components/ui/button";
 import heroView from "@/assets/hero-view.jpg";
+import { useState } from "react";
+import TurnstileContactGate from "./TurnstileContactGate";
+
+const reserveActionLabel = "Reserve a Table with a View";
 
 const Hero = () => {
+  const [showVerification, setShowVerification] = useState(false);
   const whatsappMessage = encodeURIComponent(
     "Hello Sora Sierra,\n\nI would like to reserve a table with a view.\n\nDetails:\n- Name:\n- Contact Number or Email:\n- Number of guests:\n- Date:\n- Time:\n- Special requests:\n\nThank you!"
   );
@@ -37,16 +42,23 @@ const Hero = () => {
         </p>
         <div className="flex flex-col items-center gap-4 sm:flex-row animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-300">
           <Button
+            type="button"
             size="lg"
-            asChild
             className="bg-white/20 backdrop-blur-sm hover:bg-white hover:text-foreground border-2 border-white text-white"
+            onClick={() => setShowVerification(true)}
           >
-            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-              Reserve a Table with a View
-            </a>
+            {reserveActionLabel}
           </Button>
         </div>
       </div>
+      <TurnstileContactGate
+        action={
+          showVerification
+            ? { label: reserveActionLabel, url: whatsappUrl }
+            : null
+        }
+        onOpenChange={(open) => !open && setShowVerification(false)}
+      />
     </section>
   );
 };

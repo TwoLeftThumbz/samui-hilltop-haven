@@ -32,3 +32,13 @@
 12/02 14:28 Doubled the hero top padding again for large screens.
 13/02 13:53 Added GTM script in head and noscript iframe after body open in index.html.
 05/05 20:46 Added a new /events page from new-page.txt content, wired it into routing, and linked Events in the site navigation and footer.
+02/06 12:22 Replaced the /events page with the tmp/events.tsx layout adapted to Sora Sierra styling and assets.
+02/06 12:26 Refined the /events page against tmp/events.html with a darker high-fidelity Sora Sierra visual treatment.
+02/06 12:33 Matched the /events route to the live Lovable layout utilities while retaining Sora Sierra theme colors.
+02/06 12:34 Converted the Tailwind animate plugin to an ESM import after adding event page theme aliases.
+02/06 12:41 Restyled the /events page with homepage background, button, image radius, and font color treatments.
+02/06 12:42 Replaced the custom /events header with the shared homepage Navigation component.
+02/06 12:45 Swapped the /events hero background image to gallery ambiance-02.
+30/06 14:10 Added a Cloudflare Turnstile verification dialog before homepage WhatsApp and email contact actions.
+30/06 17:54 Extended the Turnstile verification dialog to the hero reservation CTA and header Reserve Now buttons.
+30/06 18:03 Added a Vercel Turnstile verification API route and required server validation before contact redirects.
