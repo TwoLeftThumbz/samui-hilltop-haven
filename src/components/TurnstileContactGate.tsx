@@ -9,7 +9,7 @@ import {
 
 type TurnstileContactAction = {
   label: string;
-  url: string;
+  id: string;
 };
 
 type TurnstileContactGateProps = {
@@ -66,21 +66,23 @@ const loadTurnstileScript = () =>
     document.head.appendChild(script);
   });
 
-const verifyTurnstileToken = async (token: string) => {
-  const response = await fetch("/api/verify-turnstile", {
+const getContactRedirect = async (token: string, actionId: string) => {
+  const response = await fetch("/api/contact-redirect", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ token }),
+    body: JSON.stringify({ token, actionId }),
   });
 
   if (!response.ok) {
-    return false;
+    return null;
   }
 
   const result = await response.json();
-  return result.success === true;
+  return result.success === true && typeof result.redirectUrl === "string"
+    ? result.redirectUrl
+    : null;
 };
 
 const TurnstileContactGate = ({
@@ -138,9 +140,11 @@ const TurnstileContactGate = ({
 
         setStatus("loading");
 
-        const verified = await verifyTurnstileToken(token).catch(() => false);
+        const redirectUrl = await getContactRedirect(token, action.id).catch(
+          () => null,
+        );
 
-        if (!verified) {
+        if (!redirectUrl) {
           setStatus("error");
 
           if (widgetIdRef.current && window.turnstile) {
@@ -151,7 +155,7 @@ const TurnstileContactGate = ({
         }
 
         setStatus("verified");
-        window.location.href = action.url;
+        window.location.href = redirectUrl;
       },
       "error-callback": () => setStatus("error"),
       "expired-callback": () => setStatus("expired"),

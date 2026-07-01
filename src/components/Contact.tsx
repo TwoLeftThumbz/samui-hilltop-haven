@@ -5,12 +5,8 @@ import TurnstileContactGate from "./TurnstileContactGate";
 
 type ContactAction = {
   label: string;
-  url: string;
+  id: string;
 };
-
-const whatsappUrl = "https://wa.me/66886388101";
-const emailUrl =
-  "mailto:hello@sorasierra.com?subject=Reservation Request&body=Hello Sora Sierra,%0D%0A%0D%0AI would like to make a reservation.%0D%0A%0D%0ADetails:%0D%0A- Name: %0D%0A- Contact Number or Email: %0D%0A- Number of guests: %0D%0A- Date: %0D%0A- Time: %0D%0A- Special requests: %0D%0A%0D%0AThank you!";
 
 const Contact = () => {
   const [pendingAction, setPendingAction] = useState<ContactAction | null>(null);
@@ -74,7 +70,7 @@ const Contact = () => {
                     variant="outline"
                     size="sm"
                     onClick={() =>
-                      setPendingAction({ label: "WhatsApp", url: whatsappUrl })
+                      setPendingAction({ label: "WhatsApp", id: "whatsapp" })
                     }
                   >
                     Message Us
@@ -93,7 +89,7 @@ const Contact = () => {
                     variant="outline"
                     size="sm"
                     onClick={() =>
-                      setPendingAction({ label: "Email", url: emailUrl })
+                      setPendingAction({ label: "Email", id: "reservation-email" })
                     }
                   >
                     Book via Email

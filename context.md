@@ -42,3 +42,4 @@
 30/06 14:10 Added a Cloudflare Turnstile verification dialog before homepage WhatsApp and email contact actions.
 30/06 17:54 Extended the Turnstile verification dialog to the hero reservation CTA and header Reserve Now buttons.
 30/06 18:03 Added a Vercel Turnstile verification API route and required server validation before contact redirects.
+01/07 16:04 Moved contact redirect destinations behind a Turnstile-verified API endpoint so the WhatsApp number is no longer exposed in the client bundle.

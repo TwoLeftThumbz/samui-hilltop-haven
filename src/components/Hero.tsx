@@ -7,10 +7,6 @@ const reserveActionLabel = "Reserve a Table with a View";
 
 const Hero = () => {
   const [showVerification, setShowVerification] = useState(false);
-  const whatsappMessage = encodeURIComponent(
-    "Hello Sora Sierra,\n\nI would like to reserve a table with a view.\n\nDetails:\n- Name:\n- Contact Number or Email:\n- Number of guests:\n- Date:\n- Time:\n- Special requests:\n\nThank you!"
-  );
-  const whatsappUrl = `https://wa.me/66886388101?text=${whatsappMessage}`;
 
   return (
     <section className="relative min-h-[100svh] w-full overflow-hidden">
@@ -54,7 +50,7 @@ const Hero = () => {
       <TurnstileContactGate
         action={
           showVerification
-            ? { label: reserveActionLabel, url: whatsappUrl }
+            ? { label: reserveActionLabel, id: "hero-reservation" }
             : null
         }
         onOpenChange={(open) => !open && setShowVerification(false)}
