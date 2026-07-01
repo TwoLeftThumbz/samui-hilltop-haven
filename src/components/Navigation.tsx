@@ -45,7 +45,6 @@ const Navigation = () => {
     { label: "About", id: "about", routePath: "/about" },
     { label: "Menu", id: "menu", routePath: "/menu" },
     { label: "Gallery", id: "gallery", routePath: "/gallery" },
-    { label: "Events", id: "events", routePath: "/events" },
     { label: "Contact", id: "contact" },
   ];
 

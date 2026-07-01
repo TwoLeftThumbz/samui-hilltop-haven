@@ -70,12 +70,6 @@ const Footer = () => {
               >
                 Gallery
               </Link>
-              <Link
-                to="/events"
-                className="text-left text-background/80 hover:text-background transition-smooth"
-              >
-                Events
-              </Link>
               <button 
                 onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
                 className="text-left text-background/80 hover:text-background transition-smooth"
