@@ -1,6 +1,6 @@
 const siteverifyUrl = "https://challenges.cloudflare.com/turnstile/v0/siteverify";
 
-const whatsappPhoneNumber = process.env.WHATSAPP_PHONE_NUMBER || "66886388101";
+const whatsappPhoneNumber = process.env.WHATSAPP_PHONE_NUMBER || "66869109339";
 const reservationEmail = process.env.RESERVATION_EMAIL || "hello@sorasierra.com";
 
 const messages = {

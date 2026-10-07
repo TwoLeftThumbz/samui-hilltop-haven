@@ -44,3 +44,4 @@
 30/06 18:03 Added a Vercel Turnstile verification API route and required server validation before contact redirects.
 01/07 16:04 Moved contact redirect destinations behind a Turnstile-verified API endpoint so the WhatsApp number is no longer exposed in the client bundle.
 01/07 16:13 Removed the in-development Events page from app routing and hid its header and footer navigation links.
+27/08 16:55 Replaced all 24 menu page WebP assets with renders from the updated 2026 compressed menu PDF.
